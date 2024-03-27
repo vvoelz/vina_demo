@@ -12,9 +12,9 @@
 
 * Adeshina_2020_smiles.csv  - 23 inhibitors of human AChE with IC50 values from Adeshina et al 2020
 * human_AChE_binders.csv    - known human AChE inhibitors with solved co-crystal structures: 
-  * [Donepezil](https://pubchem.ncbi.nlm.nih.gov/compound/Donepezil) [4ey7.pdb](https://www.rcsb.org/structure/4EY7)
-  * [huperzine A](https://pubchem.ncbi.nlm.nih.gov/compound/854026) [4ey5.pdb](https://www.rcsb.org/structure/4EY5)
-  * [galantamine](https://pubchem.ncbi.nlm.nih.gov/compound/9651) [4ey6.pdb](https://www.rcsb.org/structure/4EY6)
+  * [Donepezil](https://pubchem.ncbi.nlm.nih.gov/compound/Donepezil) from [4ey7.pdb](https://www.rcsb.org/structure/4EY7)
+  * [huperzine A](https://pubchem.ncbi.nlm.nih.gov/compound/854026) from [4ey5.pdb](https://www.rcsb.org/structure/4EY5)
+  * [galantamine](https://pubchem.ncbi.nlm.nih.gov/compound/9651) from [4ey6.pdb](https://www.rcsb.org/structure/4EY6)
 
 
 
