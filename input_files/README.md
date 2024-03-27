@@ -10,8 +10,10 @@
 
 ## Ligands
 
-* Adeshina_2020_smiles.csv
-* human_AChE_binders.csv
+* Adeshina_2020_smiles.csv  - 23 inhibitors of human AChE with IC50 values from Adeshina et al 2020
+* human_AChE_binders.csv    - known human AChE inhibitors with solved co-crystal structures: 
+- [Donepezil](https://pubchem.ncbi.nlm.nih.gov/compound/Donepezil)
+
 
 
 ### References
