@@ -1,0 +1,28 @@
+# CONFIGURATION FILE
+
+# INPUT OPTIONS 
+receptor = receptor.pdbqt
+ligand = AC1/AC1.pdbqt
+# flex = [flexible residues in receptor in pdbqt format] 
+
+# SEARCH SPACE CONFIGURATIONS 
+# Center of the box (coordinates x, y and z 
+center_x = -14.1
+center_y = -43.8
+center_z = 27.7
+# Size of the box (dimensions in x, y and z) 
+size_x = 30
+size_y = 30
+size_z = 30
+
+# OUTPUT OPTIONS 
+# out = [outfile]
+# log = [logfile]
+
+# OTHER OPTIONS 
+# cpu = [value] # more cpus reduces the computation time
+# exhaustiveness = [value] # search time for finding the global minimum, default is 8
+# num_modes = [value] # maximum number of binding modes to generate, default is 9
+# energy_range = [value] # maximum energy difference between the best binding mode and the worst one displayed (kcal/mol), default is 3
+# seed = [value] # explicit random seed, not required
+    
