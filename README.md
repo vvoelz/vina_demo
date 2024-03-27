@@ -33,7 +33,14 @@ If you don't already have `wget` installed (use `which wget` to check), install 
 pip install wget
 ```
 
-###
+###  Steps
+
+
+### References
+
+Heavily inspired by https://colab.research.google.com/github/pb3lab/workshops/blob/main/tutorials/spb2022/D1_Tutorial2.ipynb#scrollTo=LRlv9MqoCC19 
+
+
 
 
 
