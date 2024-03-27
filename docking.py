@@ -15,6 +15,8 @@ def run_cmd(cmd, testing=False):
 
 # Ligand directories
 ligdirs = [f'AC{i}' for i in range(1,24) ]
+ligdirs += ['donezepil', 'galantamine', 'huperzine']
+
 
 # NOTE: the mean xyz coords for donezepil in 4ey7_chainA.pdb is -14.1,-43.8,27.7
 center_x, center_y, center_z = -14.1, -43.8, 27.7   # Angstrom
