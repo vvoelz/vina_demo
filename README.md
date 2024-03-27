@@ -2,10 +2,15 @@
 A demo and tutorial for Autodock Vina
 
 ## Setup
+ 
+If you haven't already, install the latest version of the Anaconda Python distribution [conda](https://docs.conda.io/projects/conda/en/stable/), or [miniconda](https://docs.anaconda.com/free/miniconda/).
 
-If you haven't already, install the latest version of Anaconda Python 3.
+NOTE: The installation package is a large `*.sh` file 
+[https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh].
+You can either download this to your local machine and `scp` to Owlsnest, or download it directly using `wget`.
 
-Create a conda environment for the vina work:
+
+### Create a conda environment for the vina work
 
 ```
 conda create --name vina
@@ -28,7 +33,7 @@ If you don't already have `wget` installed (use `which wget` to check), install 
 pip install wget
 ```
 
-
+###
 
 
 
