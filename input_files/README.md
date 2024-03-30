@@ -5,7 +5,7 @@
 * [4ey7.pdb](https://www.rcsb.org/structure/4EY7)  - Crystal Structure of Recombinant Human Acetylcholinesterase in Complex with Donepezil
 
 * 4ey7_chainA.pdb - same, but chain B is deleted
-* 4ey7_receptor.pdb - receptor only
+* 4ey7_receptor.pdb - receptor only (all non-standard residues removed)
 * 4ey7_receptor_prepped.pdb  - receptor after ChimeraX "Dock Prep" procedure: adding missing residues via MODELLER and adding hydrogens 
 
 ## Ligands
