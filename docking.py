@@ -14,8 +14,7 @@ def run_cmd(cmd, testing=False):
 
 
 # Ligand directories
-ligdirs = [f'AC{i}' for i in range(1,24) ]
-ligdirs += ['donezepil', 'galantamine', 'huperzine']
+ligdirs = ['donepezil', 'galantamine', 'huperzine', 'rivastigmine', 'AC6']
 
 
 # NOTE: the mean xyz coords for donezepil in 4ey7_chainA.pdb is -14.1,-43.8,27.7
@@ -60,4 +59,4 @@ size_z = {size_z}
     """)
 
     cmd = f'./vina --config {config_file}'
-    run_cmd(cmd, testing=True)
+    run_cmd(cmd)   #, testing=True)
