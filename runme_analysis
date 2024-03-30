@@ -1,0 +1,16 @@
+wget https://seq2fun.dcmb.med.umich.edu//DockRMSD/DockRMSD.gz
+gunzip DockRMSD.gz 
+chmod +x ./DockRMSD 
+
+# convert the xtal structure pose to mol2
+cat input_files/4ey7_chainA.pdb | grep E20 > input_files/donepezil_xtal.pdb
+obabel input_files/donepezil_xtal.pdb  -O input_files/donepezil_xtal.mol2 --ff GAFF
+
+# convert our docking poses to mol2
+obabel donepezil/donepezil_out.pdbqt -O donepezil/donepezil_out.mol2 -m
+
+# compare the RMSD using (symmetry/permutation-corrected) DockRMSD 
+./DockRMSD input_files/donepezil_xtal.mol2 donepezil/donepezil_out1.mol2
+./DockRMSD input_files/donepezil_xtal.mol2 donepezil/donepezil_out2.mol2
+# etc ...
+./DockRMSD input_files/donepezil_xtal.mol2 donepezil/donepezil_out9.mol2
