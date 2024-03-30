@@ -37,8 +37,11 @@ pip install wget
 
 ###  Next Steps
 
-1. Follow the instructions in the `runme` document to prepare the receptor
+1. Follow the instructions in the `runme_setup` document to prepare the receptor
 2. Prepare the ligands using `python prepare_ligands.py` 
+3. Dock the ligands using `docking.py`
+4. Visualize the docking results in ChimeraX
+5. Analyze the Vina score vs. RMSD-to-xtal using `python analysis.py`
 
 
 ### References
