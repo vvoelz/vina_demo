@@ -22,9 +22,11 @@ And install the following packages:
 * mgltools
 * openbabel
 * zlib
+* pandas
 
 ```
 conda install -c conda-forge -c bioconda mgltools openbabel zlib --yes
+conda install pandas
 ```
 
 If you don't already have `wget` installed (use `which wget` to check), install it:
@@ -33,7 +35,10 @@ If you don't already have `wget` installed (use `which wget` to check), install 
 pip install wget
 ```
 
-###  Steps
+###  Next Steps
+
+1. Follow the instructions in the `runme` document to prepare the receptor
+2. Prepare the ligands using `python prepare_ligands.py` 
 
 
 ### References
