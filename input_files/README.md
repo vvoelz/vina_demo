@@ -16,22 +16,24 @@
 # Information about human AChE inhibitors
 
 ### Donepezil
+* PubChem: https://pubchem.ncbi.nlm.nih.gov/compound/Donepezil)
+* PDB complex [4ey7.pdb](https://www.rcsb.org/structure/4EY7)
+* Binding affinity: Kd estimate of 8.00 nM from Zhou et al. 2021
 
-  * [Donepezil](https://pubchem.ncbi.nlm.nih.gov/compound/Donepezil) from [4ey7.pdb](https://www.rcsb.org/structure/4EY7)
+### huperzine A
+* PubChem: https://pubchem.ncbi.nlm.nih.gov/compound/854026
+* PDB complex: [4ey5.pdb](https://www.rcsb.org/structure/4EY5
+* Binding affinity: Kd estimate of 17.0 nM from Zhou et al. 2021
 
-  Kd estimate of 8.00 nM from Zhou et al. 2021
+### galantamine
+* PubChem: https://pubchem.ncbi.nlm.nih.gov/compound/9651
+* PDB complex: [4ey6.pdb](https://www.rcsb.org/structure/4EY6)
+* Binding affinity: IC50 estimate of 2.01 $\pm$ 0.15 uM from Bolognesi 2007
 
-  * [huperzine A](https://pubchem.ncbi.nlm.nih.gov/compound/854026) from [4ey5.pdb](https://www.rcsb.org/structure/4EY5)
-
-  Kd estimate of 17.0 nM from Zhou et al. 2021
-
-  * [galantamine](https://pubchem.ncbi.nlm.nih.gov/compound/9651) from [4ey6.pdb](https://www.rcsb.org/structure/4EY6)
-
-
-  * [rivastigmine](https://pubchem.ncbi.nlm.nih.gov/compound/77991) from [1gqs](https://www.rcsb.org/structure/1GQS) in complex with Tetronarce (Torpedo) californica - Pacific sting ray AChe 
-
-  IC50 estimate of 32.1 uM from Vicente-Zurdo et al. 2022
-
+### rivastigmine
+  * PubChem: https://pubchem.ncbi.nlm.nih.gov/compound/77991
+  * PDB complex: [1gqs](https://www.rcsb.org/structure/1GQS) - NOTE: in complex with Tetronarce (Torpedo) californica - Pacific sting ray AChE, not human! 
+  * Binding affinity: IC50 estimate of 32.1 uM from Vicente-Zurdo et al. 2022
 
 
 ## References
@@ -49,6 +51,9 @@ DOI: https://doi.org/10.1021/jm300871x
 Vicente-Zurdo, David, Noelia Rosales-Conrado, M. Eugenia León-González, Leonardo Brunetti, Luca Piemontese, A. Raquel Pereira-Santos, Sandra M. Cardoso, Yolanda Madrid, Sílvia Chaves, and M. Amélia Santos. “Novel Rivastigmine Derivatives as Promising Multi-Target Compounds for Potential Treatment of Alzheimer’s Disease.” Biomedicines 10, no. 7 (June 26, 2022): 1510. https://doi.org/10.3390/biomedicines10071510.
 
 Zhou, Yu, Yan Fu, Wanchao Yin, Jian Li, Wei Wang, Fang Bai, Shengtao Xu, et al. “Kinetics-Driven Drug Design Strategy for Next-Generation Acetylcholinesterase Inhibitors to Clinical Candidate.” Journal of Medicinal Chemistry 64, no. 4 (February 25, 2021): 1844–55. https://doi.org/10.1021/acs.jmedchem.0c01863.
+
+Bolognesi, Maria Laura, Rita Banzi, Manuela Bartolini, Andrea Cavalli, Andrea Tarozzi, Vincenza Andrisano, Anna Minarini, et al. “Novel Class of Quinone-Bearing Polyamines as Multi-Target-Directed Ligands To Combat Alzheimer’s Disease.” Journal of Medicinal Chemistry 50, no. 20 (October 1, 2007): 4882–97. https://doi.org/10.1021/jm070559a.
+
 
 
 
