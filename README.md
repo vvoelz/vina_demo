@@ -46,6 +46,8 @@ pip install wget
 
 ### References
 
+Full documentation of AutoDock Vina can be found here: https://autodock-vina.readthedocs.io/  
+
 Heavily inspired by https://colab.research.google.com/github/pb3lab/workshops/blob/main/tutorials/spb2022/D1_Tutorial2.ipynb#scrollTo=LRlv9MqoCC19 
 
 
