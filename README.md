@@ -62,7 +62,7 @@ conda activate vina
 
 You now can continue to run scripts on the command line.  The jobs will run on the queued node, not the login node. 
 
-To exit interactive job, use
+To exit the interactive job, use
 ```
 exit
 ```
