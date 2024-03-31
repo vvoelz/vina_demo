@@ -6,6 +6,9 @@ wget https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.3/vina
 mv vina_1.2.3_linux_x86_64 vina #rename the vina_1.2.3_linux_x86_64 as vina
 chmod +x vina
 
-#  prep the receptor
+# prepare the receptor
+#
+## NOTE: You may have to change the pathname of the script depending on your conda installation
+##       Use 'which prepare_receptor4.py' to see the pathname
 python2 ~/anaconda3/envs/vina/bin/prepare_receptor4.py -r input_files/4ey7_receptor_prepped.pdb -o ./receptor.pdbqt -A hydrogens -U nphs_lps -v
 
