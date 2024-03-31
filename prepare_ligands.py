@@ -14,7 +14,7 @@ AC6,ClC1=C(NC=2C=CC(Cl)=CC12)C(=O)NC3=NC(=CS3)C4CCNCC4,280
 
 # Find the exectuable pathname for prepare_ligand4.py
 import subprocess
-prepare_ligand4 = subprocess.check_output(['which', 'prepare_ligand4.py'], text=True)
+prepare_ligand4 = (subprocess.check_output(['which', 'prepare_ligand4.py'], text=True)).strip()
 
 def run_cmd(cmd, testing=False):
     """Run a shell command on the UNIX command line.
@@ -54,6 +54,7 @@ for i in range(len(smiles_list)):
     # Use OpenBabel to convert the SMILES into a 3D MOL2 format and
     # perform a weighted rotor search for lowest energy conformer
     mol2file = smilesfile.replace('.smiles','.mol2')
+
     os.system(f'obabel {smilesfile} -O {mol2file} --gen3d --best --canonical --conformers --weighted --nconf 50 --ff GAFF')
     print(f'  ...  {mol2file}')
 
@@ -61,13 +62,22 @@ for i in range(len(smiles_list)):
     pdbqtfile = smilesfile.replace('.smiles','.pdbqt')
 
     ### ... for some reason the script does not work with files on other directories
-    os.chdir(ligdir)
     local_mol2file = os.path.basename(mol2file)
+    cmd = f'cp {mol2file} {local_mol2file}'   # make a local copy of the mol2file
+    run_cmd(cmd)  #, testing=True)
+
     local_pdbqtfile = os.path.basename(pdbqtfile)
     cmd = f'python2 {prepare_ligand4} -l {local_mol2file} -o {local_pdbqtfile} -U nphs_lps -v'
     run_cmd(cmd)  #, testing=True)
     print(f'  ...  {pdbqtfile}')
-    os.chdir('../')
+
+    # Cleanup!
+    cmd = f'mv {local_pdbqtfile} {pdbqtfile}' # move the local outputfile to the ligand directory
+    run_cmd(cmd)  #, testing=True)
+
+    cmd = f'rm {local_mol2file}' # remove the local mol2file
+    run_cmd(cmd)  #, testing=True)
+
 
 
 
