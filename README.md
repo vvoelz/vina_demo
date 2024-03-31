@@ -41,7 +41,7 @@ NOTE: For each of these steps, make sure to read the _contents_ of each script b
 
 1. Follow the instructions in the `runme_setup` document to prepare the receptor
 2. Prepare the ligands using `python prepare_ligands.py` 
-3. Dock the ligands using `python docking.py` (IMPORANT! This step should be run interactively on one of the nodes of Owlsnest, see below) 
+3. Dock the ligands using `python docking.py` (**IMPORTANT**! This step should be run interactively on one of the nodes of Owlsnest, see below) 
 4. Visualize the docking results in ChimeraX
 5. Analyze the Vina score vs. RMSD-to-xtal using `python analysis.py`
 
