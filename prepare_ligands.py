@@ -1,26 +1,20 @@
 import os, sys
 import pandas as pd
-df = pd.read_csv('input_files/Adeshina_2020_smiles.csv')
 
-"""This looks like:
 
-ligand,SMILES
-AC1,COC=1C=CC=C2NC=C(CCNC(C)C=3C=CC(=CC3)N4C=NC=N4)C12
-AC2,CN1N=C(C=C1NC(=O)C=2C=NC=C(C2)C=3C=CC(Cl)=CC3)C(C)(C)C
-AC3,CC=1C=CC=C(C1)C=2C=NC=C(C2)C(=O)NC3=NC(=CS3)C4CCNCC4
-...
+df = pd.read_csv('input_files/human_AChE_binders.csv')
+"""
+ligand,SMILES,IC50(nM)
+donepezil,COC1=C(C=C2C(=C1)CC(C2=O)CC3CCN(CC3)CC4=CC=CC=C4)OC,8.00
+huperzine,CC=C1C2CC3=C(C1(CC(=C2)C)N)C=CC(=O)N3,17.0
+galantamine,CN1CCC23C=CC(CC2OC4=C(C=CC(=C34)C1)OC)O,2010
+rivastigmine,32100
+AC6,ClC1=C(NC=2C=CC(Cl)=CC12)C(=O)NC3=NC(=CS3)C4CCNCC4,280
 """
 
-df2 = pd.read_csv('input_files/human_AChE_binders.csv')
-"""
-ligand,SMILES
-donezepil,COC1=C(C=C2C(=C1)CC(C2=O)CC3CCN(CC3)CC4=CC=CC=C4)OC
-huperzine,CC=C1C2CC3=C(C1(CC(=C2)C)N)C=CC(=O)N3
-galantamine,CN1CCC23C=CC(CC2OC4=C(C=CC(=C34)C1)OC)O
-"""
-
-
-prepare_ligand4 = '~/anaconda3/envs/vina/bin/prepare_ligand4.py'
+# Find the exectuable pathname for prepare_ligand4.py
+import subprocess
+prepare_ligand4 = subprocess.check_output(['which', 'prepare_ligand4.py'], text=True)
 
 def run_cmd(cmd, testing=False):
     """Run a shell command on the UNIX command line.
@@ -35,12 +29,10 @@ def run_cmd(cmd, testing=False):
 
 # Create a series of directories containing each ligand
 ligand_list = []
-#ligand_list += [str(df.loc[index,'ligand']) for index, row in df.iterrows()]
-ligand_list += [str(df2.loc[index,'ligand']) for index, row in df2.iterrows()]
+ligand_list += [str(df.loc[index,'ligand']) for index, row in df.iterrows()]
 
 smiles_list = []
-#smiles_list += [str(df.loc[index,'SMILES']) for index, row in df.iterrows()]
-smiles_list += [str(df2.loc[index,'SMILES']) for index, row in df2.iterrows()]
+smiles_list += [str(df.loc[index,'SMILES']) for index, row in df.iterrows()]
 
 for i in range(len(smiles_list)):
 
