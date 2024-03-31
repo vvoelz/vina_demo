@@ -37,11 +37,35 @@ pip install wget
 
 ###  Next Steps
 
+NOTE: For each of these steps, make sure to read the _contents_ of each script before you run the script.  This way, you will know what is going on, and can debug if something goes wrong.
+
 1. Follow the instructions in the `runme_setup` document to prepare the receptor
 2. Prepare the ligands using `python prepare_ligands.py` 
-3. Dock the ligands using `docking.py`
+3. Dock the ligands using `python docking.py` (IMPORANT! This step should be run interactively on one of the nodes of Owlsnest, see below) 
 4. Visualize the docking results in ChimeraX
 5. Analyze the Vina score vs. RMSD-to-xtal using `python analysis.py`
+
+### Running interactively on Owlsnest
+
+Running any program that requires substantial computational resources is NOT ALLOWED on Owlsnest.  This applies to our docking calculations as well. Since we're only docking ligands, the overall runtime should be short.  In this case, we can submit an interactive job on the `normal` queue, using
+
+```
+qsub -I -q normal
+```
+
+This command will submit a queued shell job, and allow you to interact within it for up to 30 minutes (the docking should take less than a minute).  When you are logged into the node, you will be back in your $HOME directory, and in your base conda environment. You will need to change back to your working directory and activate your 'vina' conda environment like so:
+
+```
+cd ~/work/git/vina_demo   # or wherever your work is
+conda activate vina
+```
+
+You now can continue to run scripts on the command line.  The jobs will run on the queued node, not the login node. 
+
+To exit interactive job, use
+```
+exit
+```
 
 
 ### References
