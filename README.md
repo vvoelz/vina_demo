@@ -26,6 +26,7 @@ And install the following packages:
 
 ```
 conda install -c conda-forge -c bioconda mgltools openbabel zlib --yes
+
 conda install pandas
 ```
 
