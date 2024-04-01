@@ -44,7 +44,7 @@ NOTE: For each of these steps, make sure to read the _contents_ of each script b
 2. Prepare the ligands using `python prepare_ligands.py` 
 3. Dock the ligands using `python docking.py` (**IMPORTANT**! This step should be run interactively on one of the nodes of Owlsnest, see below) 
 4. Visualize the docking results in ChimeraX (`scp` the `receptor.pdbqt` and `[ligand]_out.pdbqt` files to your personal computer to view them)
-5. Analyze the Vina score vs. RMSD-to-xtal using `python analysis.py`
+5. Analyze the Vina score vs. RMSD-to-xtal using `python analysis.py`  (NOTE: this script downloads and uses a tool called [DockRMSD](https://zhanggroup.org/DockRMSD/) from the Zhang group at University of Michigan to compute RMSD for molecules with symmetry or permuted atom orders.)
 
 ### Running interactively on Owlsnest
 
