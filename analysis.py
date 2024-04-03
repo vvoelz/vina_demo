@@ -26,39 +26,78 @@ run_cmd('obabel input_files/donepezil_xtal.pdb  -O input_files/donepezil_xtal.mo
 # convert our docking poses to mol2
 run_cmd('obabel donepezil/donepezil_out.pdbqt -O donepezil/donepezil_out.mol2 -m')
 
+
+
 ########################
-# ANALYSIS: docking score versus RMSD-to-xtal
+# ANALYSIS
 
-# To get the docking score(s), we need to parse the [ligand]_out.pdbqt file
-vina_scores = []
-fin = open('donepezil/donepezil_out.pdbqt', 'r')
-lines = fin.readlines()
-fin.close()
+if not os.path.exists('docking_results'):
+    os.mkdir('docking_results')
 
-for line in lines:
-    if line.count('REMARK VINA RESULT:') > 0:
+method = 'vina'
+ligands = ['donepezil', 'galantamine', 'huperzine', 'rivastigmine', 'AC6']
+
+for ligand in ligands:
+
+    resultname = f'{method}_{ligand}'
+
+    ### get docking scores
+    vina_scores = []
+    fin = open(f'{ligand}/{ligand}_out.pdbqt', 'r')
+    lines = fin.readlines()
+    fin.close()
+
+    for line in lines:
+      if line.count('REMARK VINA RESULT:') > 0:
         # line looks like 'REMARK VINA RESULT:   -11.391      0.000      0.000'
         score = float(line.split()[3])
         vina_scores.append( score )
-print('vina_scores', vina_scores)
 
+    print('vina_scores', vina_scores)
 
-# To get the rmsd-to-xtal of the docked pose, we need to parse the output of DockRMSD
-posed_mol2files = [f'donepezil/donepezil_out{i}.mol2' for i in range(1,10)]
-rmsd_values = []
-for posed_mol2file in posed_mol2files:
+    ### for donepezil, get docking score versus RMSD-to-xtal
+    if ligand == 'donepezil':
 
-    # Create a subprocess to run the 'ls' command
-    xtal_mol2 = 'input_files/donepezil_xtal.mol2'
-    output = subprocess.check_output(['./DockRMSD', xtal_mol2, posed_mol2file], text=True)
+      # To get the rmsd-to-xtal of the docked pose, we need to parse the output of DockRMSD
+      posed_mol2files = [f'{ligand}/{ligand}_out{i}.mol2' for i in range(1,10)]
+      rmsd_values = []
+      for posed_mol2file in posed_mol2files:
 
-    # parse the RMSD from the line "Calculated Docking RMSD: ##.###\n" 
-    lines = [line for line in output.split('\n') if line.count("Calculated Docking RMSD:") > 0]
-    rmsd = float(lines[0].strip().split()[-1])
-    rmsd_values.append(rmsd)
-print('rmsd_values', rmsd_values)
-print()
+        # Create a subprocess to run ./DockRMSD and grab the output
+        xtal_mol2 = f'input_files/{ligand}_xtal.mol2'
+        output = subprocess.check_output(['./DockRMSD', xtal_mol2, posed_mol2file], text=True)
 
-print('RMSD-to-xtal (A), Vina score (kcal/mol)')
-for i in range(len(vina_scores)):
-    print(f'{rmsd_values[i]},{vina_scores[i]}')
+        # parse the RMSD from the line "Calculated Docking RMSD: ##.###\n" 
+        lines = [line for line in output.split('\n') if line.count("Calculated Docking RMSD:") > 0]
+        rmsd = float(lines[0].strip().split()[-1])
+        rmsd_values.append(rmsd)
+
+      print('rmsd_values', rmsd_values)
+
+    # PRINT and SAVE the results
+
+    csvfile = f'docking_results/{resultname}.csv'
+    print('-------------')
+    print()
+    print(f'Writing to {csvfile} ...')
+    fout = open(csvfile, 'w')
+
+    num_poses = len(vina_scores)
+    if ligand == 'donepezil':
+        header = 'pose,RMSD-to-xtal (A),minimizedAffinity (kcal/mol)'
+        print(header)
+        fout.write(header+'\n')
+        for j in range(num_poses):
+            line = f"{j+1},{rmsd_values[j]},{vina_scores[j]}"
+            print(line)
+            fout.write(line+'\n')
+    else:
+        header = 'pose,minimizedAffinity (kcal/mol)'
+        print(header)
+        fout.write(header+'\n')
+        for j in range(num_poses):
+            line = f"{j+1},{vina_scores[j]}"
+            print(line)
+            fout.write(line+'\n')
+
+    fout.close()
